@@ -1,32 +1,7 @@
-// // Bands in town API
-// var artist = $().attr();
-// var artistMBID = "";
-// var tourLink;
-// var queryURL = "https://rest.bandsintown.com/artists/" + artist + "?app_id=codingbootcamp";
-
-// $.ajax({
-//   url: queryURL,
-//   method: "GET",
-// }).then(function(response) {
-//   // Printing the entire object to console
-//   console.log(response);
-
-//   // Artist Monkey Brainz id
-//   artistMBID = response.mbid;
-//   // variable to check if there are upcoming events for selected artist
-//   var eventCount = response.upcoming_event_count;
-//   if (eventCount > 0) {
-//     tourLink = $("<a>")
-//       .attr("href", response.url)
-//       .text("See Tour Dates");
-//   }
-// });
-
-
-
 var trackList;
 var trackNames;
 var singer = [];
+var artistImg;
 
 //submit button for form
 $(document).on("click", "#submit", function (event) {
@@ -42,6 +17,7 @@ $(document).on("click", "#submit", function (event) {
     //remove previous buttons
     $("#here").empty();
     buttonGen();
+    artistData();
 })
 
 // This function creates buttons with the search term provided in submit button function
@@ -83,6 +59,33 @@ function buttonGen() {
 
     })
 };
+
+function artistData() {
+  for (var q = 0; q < singer.length; q++) {
+    var index = q;
+  }
+
+  var queryURL = "https://rest.bandsintown.com/artists/" + singer[index] + "?app_id=codingbootcamp";
+  // bands in town api call
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function(response) {
+    // Printing the entire object to console
+    console.log(response);
+
+    // Artist Monkey Brainz id
+    artistImg = `<img src="${response.image_url}" alt="${response.name}" />`;
+    // variable to check if there are upcoming events for selected artist
+    var eventCount = response.upcoming_event_count;
+    if (eventCount > 0) {
+      var tourLink = $("<a>")
+        .attr("href", response.url)
+        .text("See Tour Dates");
+    }
+    $().append(tourLink);
+  });
+}
 
 //onclick function to access .track buttons created from buttonGen
 $(document).on('click', '.tracks', function () {
