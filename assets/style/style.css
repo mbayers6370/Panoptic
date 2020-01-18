@@ -1,0 +1,16 @@
+.tracks {
+    margin-right: 3px;
+    margin-top: 3px;
+}
+
+#center {
+    text-align: center;
+}
+
+#header{
+    text-align: center;
+    font-size: 100px;
+    color: black;
+    font-family: 'Megrim', cursive;
+}
+
