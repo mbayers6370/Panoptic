@@ -63,7 +63,11 @@ function buttonGen() {
 }
 
 function artistData() {
-  var queryURL = "https://rest.bandsintown.com/artists/" + searchTerm + "?app_id=codingbootcamp";
+  for (var q = 0; q < singer.length; q++) {
+    var index = q;
+  }
+
+  var queryURL = "https://rest.bandsintown.com/artists/" + singer[index] + "?app_id=codingbootcamp";
   // bands in town api call
   $.ajax({
     url: queryURL,
