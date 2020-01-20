@@ -15,7 +15,7 @@ $(document).on("click", "#submit", function(event) {
   singer.push(searchTerm);
 
   //remove previous buttons
-  $(".tracks").remove();
+  $("#here").empty();
   buttonGen();
   artistData();
 });
@@ -52,18 +52,18 @@ function buttonGen() {
 
       //appending buttons to id here
       $("#here").append(
-        "<button class='tracks' id='" + trackNames + "'>" + trackNames + "</button>"
+        "<button class='tracks waves-effect waves-light btn-large teal darken-4' id='" +
+          trackNames +
+          "'>" +
+          trackNames +
+          "</button>"
       );
     }
   });
 }
 
 function artistData() {
-  for (var q = 0; q < singer.length; q++) {
-    var index = q;
-  }
-
-  var queryURL = "https://rest.bandsintown.com/artists/" + singer[index] + "?app_id=codingbootcamp";
+  var queryURL = "https://rest.bandsintown.com/artists/" + searchTerm + "?app_id=codingbootcamp";
   // bands in town api call
   $.ajax({
     url: queryURL,
@@ -120,3 +120,61 @@ $(document).on("click", ".tracks", function() {
     }
   });
 });
+
+/*
+ YouTube Api 
+ 
+ this line goes on html doc
+ <script src="https://apis.google.com/js/api.js"></script>
+ */
+
+function loadClient() {
+  gapi.client.setApiKey("AIzaSyC8ON2ihQcVmdOPUKgwnn3uwVGGo4YIli4");
+  return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest").then(
+    function() {
+      console.log("GAPI client loaded for API");
+    },
+    function(err) {
+      console.error("Error loading GAPI client for API", err);
+    }
+  );
+}
+// Make sure the client is loaded before calling this method.
+function execute() {
+  return gapi.client.youtube.search
+    .list({
+      part: "snippet",
+      maxResults: 1,
+      q: "one metallica music video",
+      type: "video",
+    })
+    .then(
+      function(response) {
+        // Handle the results here (response.result has the parsed body).
+        console.log("Response", response);
+        var results = response.result.items[0];
+        var title = `<p>${results.snippet.title}</p>`;
+        var video = `
+                      <iframe width="420" height="315"
+                      src="https://www.youtube.com/embed/${results.id.videoId}">
+                      </iframe>`;
+        // $("#video")
+        //   .append(title)
+        //   .append(video);
+      },
+      function(err) {
+        console.error("Execute error", err);
+      }
+    );
+}
+// gapi.load("client"); <---- will need to be uncommented
+
+/*
+end of youtube api call
+
+We need to figure out a way to perform the load client function 
+I was going to add it to the first button click event
+other than that the list portion of the api is where we need to input variables
+more specifically just the value for "q"
+
+*/
