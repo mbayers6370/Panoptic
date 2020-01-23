@@ -7,11 +7,8 @@ var song;
 //submit button for form
 $(document).on("click", "#submit", function(event) {
   event.preventDefault();
-
   // adding user input to a variable
-  var searchTerm = $("#searchTerm")
-    .val()
-    .trim();
+  var searchTerm = $("#searchTerm").val();
   console.log(searchTerm);
 
   // pushing user input from variable into singer array
@@ -87,7 +84,7 @@ function artistData() {
     // variable to check if there are upcoming events for selected artist
     var eventCount = response.upcoming_event_count;
     if (eventCount > 0) {
-      var tourLink = $("<a>")
+      var tourLink = $("<a id='tour'>")
         .attr("href", response.url)
         .text("See Tour Dates");
     }
@@ -182,3 +179,42 @@ gapi.load("client");
 /*
 end of youtube api call
 */
+
+//====================================================================================================================================
+// WIKIPEDIA API
+
+// the main endpoint. In this case it is English Wikipedia.
+var url = "https://en.wikipedia.org/w/api.php";
+
+var params = {
+  // action=query means fetch data from wiki.
+  action: "query",
+  // list=search means get list of pages matching a criteria
+  list: "search",
+  // srsearch=Craig%20Noone indicates the page title to search for. The %20 indicates a space character in a URL.
+  srsearch: "Craig Noone",
+  // indicates JSON output, which is the recommended output format.
+  format: "json",
+};
+
+//Keyess API
+url = url + "?origin=*";
+Object.keys(params).forEach(function(key) {
+  url += "&" + key + "=" + params[key];
+});
+
+fetch(url)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(response) {
+    if (response.query.search[0].title === "Craig Noone") {
+      // console.log("Your search page 'Craig Noone' exists on English Wikipedia" );
+      console.log(response);
+    }
+  })
+  .catch(function(error) {
+    console.log(error);
+  });
+
+// =======================================================================================================

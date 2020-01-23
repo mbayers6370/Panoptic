@@ -1,3 +1,8 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 .tracks {
     margin-right: 3px;
     margin-top: 3px;
@@ -45,8 +50,63 @@
 
 #lyrics {
     max-height: 400px;
+    margin-top: 10px;
 }
 
 #searchTerm {
     text-align: center;
 }
+
+#profile {
+    text-align: center;
+    left: 0;
+    margin-bottom: 200px;
+}
+
+div.lyrics {
+    width: 100%;
+    overflow:auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #004d40; 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00695c; 
+  }
+
+
+  @media only screen and (max-width: 730px) {
+    #lyrics {
+        width: 100%;
+        clear: left;
+        margin-top: 0;
+        margin-bottom: 200px;
+    }
+
+    #profile {
+        width: 100%;
+        clear: left;
+        margin-bottom: 10px;
+    }
+
+    #header {
+        left:0;
+    }
+
+  }
