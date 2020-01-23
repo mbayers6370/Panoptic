@@ -1,68 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> -->
+    <!-- <script type="text/javascript" src="assets/javascript/app.js"></script> -->
     <script src="https://js-cdn.music.apple.com/musickit/v1/musickit.js"></script>
-    <script type="text/javascript" src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"></script>
-    <link rel="stylesheet" href="assets/style/style.css">
+    <script
+      type="text/javascript"
+      src="http://tracking.musixmatch.com/t1.0/AMa6hJCIEzn1v8RuOP"
+    ></script>
+    <link rel="stylesheet" href="assets/style/style.css" />
 
     <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Megrim&display=swap" rel="stylesheet" />
     <title>Document</title>
-</head>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="row" id="center">
-            <div class="col s12">
-                <p id=header>Panoptic</p>
-            </div>
+      <div class="row" id="center">
+        <div class="col s12">
+          <p id="header">Panoptic</p>
         </div>
-        
-        <div id="center">
-            <div id="here"></div>
-        </div>
+      </div>
 
-        <div class="row">
-            <!--artist bio, tour date link, & photo-->
-            <div class="col s4" id="profile"></div>
+      <div id="center">
+        <div id="here"></div>
+      </div>
 
-            <!--music video-->
-            <div class="col s4" id="musicVideo"></div>
+      <div class="row">
+        <!--artist bio, tour date link, & photo-->
+        <div class="col s4" id="profile"></div>
 
-            <!--songs and lyrics-->
-            <div class="col s4" id="lyrics"></div>
-        </div>
-        <div class="container">
+        <!--music video-->
+        <div class="col s4" id="musicVideo"></div>
+
+        <!--songs and lyrics-->
+        <div class="col s4" id="lyrics"></div>
+      </div>
+      <div class="container">
         <div id="form">
-            <form>
-                <p id="searchHeader">Search Artists Here:</p>
-                <input type="text" id="searchTerm">
-                <button class="waves-effect waves-light btn-large teal darken-4" type="submit" value="Submit"
-                    id="submit">Submit</button>
-            </form>
+          <form>
+            <p id="searchHeader">Search Artists Here:</p>
+            <input type="text" id="searchTerm" />
+            <button
+              onclick="loadClient()"
+              class="waves-effect waves-light btn-large teal darken-4"
+              type="submit"
+              value="Submit"
+              id="submit"
+            >
+              Submit
+            </button>
+          </form>
         </div>
-        </div>
+      </div>
     </div>
-</body>
-
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+  </body>
 </html>
