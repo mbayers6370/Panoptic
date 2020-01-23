@@ -21,6 +21,7 @@ $(document).on("click", "#submit", function (event) {
     $("#profile").empty();
     buttonGen();
     artistData();
+    wikiCall();
 });
 
 // This function creates buttons with the search term provided in submit button function
@@ -225,7 +226,7 @@ function wikiCall() {
               }
         })
         .catch(function(error){console.log(error);});
-        
+
       };
 
 // =======================================================================================================
