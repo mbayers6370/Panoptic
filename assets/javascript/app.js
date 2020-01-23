@@ -22,6 +22,7 @@ $(document).on("click", "#submit", function(event) {
   $("#profile").empty();
   buttonGen();
   artistData();
+  wikiCall();
 });
 
 // This function creates buttons with the search term provided in submit button function
@@ -184,37 +185,40 @@ end of youtube api call
 // WIKIPEDIA API
 
 // the main endpoint. In this case it is English Wikipedia.
-var url = "https://en.wikipedia.org/w/api.php";
 
-var params = {
-  // action=query means fetch data from wiki.
-  action: "query",
-  // list=search means get list of pages matching a criteria
-  list: "search",
-  // srsearch=Craig%20Noone indicates the page title to search for. The %20 indicates a space character in a URL.
-  srsearch: "Craig Noone",
-  // indicates JSON output, which is the recommended output format.
-  format: "json",
-};
+function wikiCall() {
+  var url = "https://en.wikipedia.org/w/api.php";
 
-//Keyess API
-url = url + "?origin=*";
-Object.keys(params).forEach(function(key) {
-  url += "&" + key + "=" + params[key];
-});
+  var params = {
+    // action=query means fetch data from wiki.
+    action: "query",
+    // list=search means get list of pages matching a criteria
+    list: "search",
+    // srsearch=Craig%20Noone indicates the page title to search for. The %20 indicates a space character in a URL.
+    srsearch: "singer",
+    // indicates JSON output, which is the recommended output format.
+    format: "json",
+  };
 
-fetch(url)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(response) {
-    if (response.query.search[0].title === "Craig Noone") {
-      // console.log("Your search page 'Craig Noone' exists on English Wikipedia" );
-      console.log(response);
-    }
-  })
-  .catch(function(error) {
-    console.log(error);
+  //Keyess API
+  url = url + "?origin=*";
+  Object.keys(params).forEach(function(key) {
+    url += "&" + key + "=" + params[key];
   });
+
+  fetch(url)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+      if (response.query.search[0].title === "singer") {
+        console.log("Your search page 'singer' exists on English Wikipedia");
+        //console.log(response)
+      }
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
 
 // =======================================================================================================
