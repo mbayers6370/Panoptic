@@ -21,21 +21,6 @@ $(document).on("click", "#submit", function (event) {
     $("#profile").empty();
     buttonGen();
     artistData();
-})
-$(document).on("click", "#submit", function(event) {
-  event.preventDefault();
-  // adding user input to a variable
-  var searchTerm = $("#searchTerm").val();
-  console.log(searchTerm);
-
-  // pushing user input from variable into singer array
-  singer = [];
-  singer.push(searchTerm);
-
-  //remove previous buttons
-  $("#here").empty();
-  buttonGen();
-  artistData();
 });
 
 // This function creates buttons with the search term provided in submit button function
@@ -100,7 +85,7 @@ function artistData() {
     // variable to check if there are upcoming events for selected artist
     var eventCount = response.upcoming_event_count;
     if (eventCount > 0) {
-      var tourLink = $("<a>")
+      var tourLink = $("<a id='tour'>")
         .attr("href", response.url)
         .text("See Tour Dates");
     }
@@ -151,6 +136,7 @@ $(document).on("click", ".tracks", function() {
  <script src="https://apis.google.com/js/api.js"></script>
  */
 
+
 function loadClient() {
   gapi.client.setApiKey("AIzaSyC8ON2ihQcVmdOPUKgwnn3uwVGGo4YIli4");
   return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest").then(
@@ -190,7 +176,7 @@ function execute() {
       }
     );
 }
-// gapi.load("client"); <---- will need to be uncommented
+// gapi.load("client"); 
 
 /*
 end of youtube api call
