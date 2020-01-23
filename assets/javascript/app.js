@@ -81,7 +81,7 @@ function artistData() {
     console.log(response);
 
     // Artist Monkey Brainz id
-    artistImg = `<img src="${response.image_url}" alt="${response.name}" id="profPic"/>`;
+    artistImg = `<img src="${response.image_url}" alt="${response.name}" id="profPic"/><br>`;
     $("#profile").append(artistImg);
     // variable to check if there are upcoming events for selected artist
     var eventCount = response.upcoming_event_count;
