@@ -10,7 +10,7 @@ We have created a web application that lets users enter for their favorite artis
 * Recieve an image of the artist                ... ✔
 * Recieve songs that the artist has             ... ✔
 * Recieve lyrics to the song selected           ... ✔
-* Recieve information of the artist             ...(In Progress)
+* Recieve information of the artist via wiki    ...(In Progress)
 * Recieve a link if the artist is on tour       ... ✔
 * Recieve a Video on the selected song          ...(In Progress)
 
@@ -22,18 +22,17 @@ We have created a web application that lets users enter for their favorite artis
 Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method. -->
 
 ## Usage
-<!-- 
-    Usage
+Enter an artist you can think of in the search bar. You will recieve information about the artist with songs that are popular by the atist and information about the artist via Wikipedia. Clicking on any of the songs will display song lyrics, if the song does not have any lyrics then it will display with an error. Alongside the lyrics a youtube video will pop up as well as a link to tour dates if the aritst has any upcoming tour dates. 
 
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
- -->
+Overall we belive that this is an easy to use application for any use to find the quickest information about an artist.
+
 
 ## Roadmap
 * Finding API's                             ... ✔
 * Found BandInTown API                      ... ✔
 * Found MourtzLyrics API                    ... ✔
 * Calling API's in js.logic                 ... ✔
-* Creating the webpage using Materialize    ...(In Progress)
+* Creating the webpage using Materialize    ... ✔
 * Creating and upadating ReadMe             ...(In Progress)
 * Found Youtube API for addding Video       ...(In Progress)
 * Found WIKIPEDIA API for Artist Infomation ...(In Progress)
@@ -48,4 +47,5 @@ Use examples liberally, and show the expected output if you can. It's helpful to
 Not Open to Contributers
 
 ## Project Status
-In Progress...
+* Finishes with core functions
+* Adding bells and wistles now to finished project
