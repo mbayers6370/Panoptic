@@ -32,22 +32,36 @@
 
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row" id="center">
             <div class="col s12">
                 <p id=header>Panoptic</p>
             </div>
         </div>
+        
+        <div id="center">
+            <div id="here"></div>
+        </div>
+
+        <div class="row">
+            <!--artist bio, tour date link, & photo-->
+            <div class="col s4" id="profile"></div>
+
+            <!--music video-->
+            <div class="col s4" id="musicVideo"></div>
+
+            <!--songs and lyrics-->
+            <div class="col s4" id="lyrics"></div>
+        </div>
+        <div class="container">
         <div id="form">
             <form>
-                Search Artists Here:
+                <p id="searchHeader">Search Artists Here:</p>
                 <input type="text" id="searchTerm">
-                <button class="waves-effect waves-light btn-large teal darken-4" type="submit" value="Submit" id="submit">Submit</button>
+                <button class="waves-effect waves-light btn-large teal darken-4" type="submit" value="Submit"
+                    id="submit">Submit</button>
             </form>
         </div>
-        <div id="center">
-        <div id="here"></div>
         </div>
-        <div class="col s3" id="lyrics"></div>
     </div>
 </body>
 

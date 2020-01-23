@@ -12,5 +12,41 @@
     font-size: 100px;
     color: black;
     font-family: 'Megrim', cursive;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    margin-left: 0px;
 }
 
+#searchHeader{
+    text-align: center;
+    font-size: 30px;
+    color: black;
+    font-family: 'Megrim', cursive;
+    width: 100%;
+    font-weight: bold;
+}
+
+#profPic{
+    width: 100%;
+    height: 400px;
+    margin-top: 10px;
+}
+
+#form {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 2px;
+    background-color: white;
+    text-align: center;
+    width: 100%;
+    left: 0;
+}
+
+#lyrics {
+    max-height: 400px;
+}
+
+#searchTerm {
+    text-align: center;
+}
