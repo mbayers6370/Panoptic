@@ -2,25 +2,27 @@ var trackList;
 var trackNames;
 var singer = [];
 var artistImg;
+var song;
 
 //submit button for form
-$(document).on("click", "#submit", function (event) {
-    event.preventDefault();
-    // adding user input to a variable
-    var searchTerm = $("#searchTerm").val();
-    console.log(searchTerm)
+$(document).on("click", "#submit", function(event) {
+  event.preventDefault();
+  // adding user input to a variable
+  var searchTerm = $("#searchTerm").val();
+  console.log(searchTerm);
 
-    // pushing user input from variable into singer array
-    singer = [];
-    singer.push(searchTerm);
+  // pushing user input from variable into singer array
+  singer = [];
+  singer.push(searchTerm);
 
-    //remove previous buttons
-    $("#here").empty();
-    $("#lyrics").empty();
-    $("#musicVideo").empty();
-    $("#profile").empty();
-    buttonGen();
-    artistData();
+  //remove previous buttons
+  $("#here").empty();
+  $("#lyrics").empty();
+  $("#musicVideo").empty();
+  $("#profile").empty();
+  buttonGen();
+  artistData();
+  wikiCall();
 });
 
 // This function creates buttons with the search term provided in submit button function
@@ -66,11 +68,7 @@ function buttonGen() {
 }
 
 function artistData() {
-  for (var q = 0; q < singer.length; q++) {
-    var index = q;
-  }
-
-  var queryURL = "https://rest.bandsintown.com/artists/" + singer[index] + "?app_id=codingbootcamp";
+  var queryURL = "https://rest.bandsintown.com/artists/" + singer[0] + "?app_id=codingbootcamp";
   // bands in town api call
   $.ajax({
     url: queryURL,
@@ -80,7 +78,9 @@ function artistData() {
     console.log(response);
 
     // Artist Monkey Brainz id
-    artistImg = `<img src="${response.image_url}" alt="${response.name}" id="profPic"/><br>`;
+    artistImg = $(
+      "<img src='" + response.image_url + "' alt='" + response.name + "' id='profPic'/>"
+    );
     $("#profile").append(artistImg);
     // variable to check if there are upcoming events for selected artist
     var eventCount = response.upcoming_event_count;
@@ -107,7 +107,7 @@ $(document).on("click", ".tracks", function() {
   };
 
   //accessing button attributes and grabbing song title from id
-  var song = $(this).attr("id");
+  song = $(this).attr("id");
 
   //setting url to search for song lyrics
   settings.url =
@@ -127,15 +127,13 @@ $(document).on("click", ".tracks", function() {
       );
     }
   });
+  execute();
 });
 
 /*
- YouTube Api 
- 
- this line goes on html doc
- <script src="https://apis.google.com/js/api.js"></script>
- */
+YouTube Api 
 
+*/
 
 function loadClient() {
   gapi.client.setApiKey("AIzaSyC8ON2ihQcVmdOPUKgwnn3uwVGGo4YIli4");
@@ -154,7 +152,7 @@ function execute() {
     .list({
       part: "snippet",
       maxResults: 1,
-      q: "one metallica music video",
+      q: song + " " + singer[0] + " music video",
       type: "video",
     })
     .then(
@@ -162,61 +160,65 @@ function execute() {
         // Handle the results here (response.result has the parsed body).
         console.log("Response", response);
         var results = response.result.items[0];
-        var title = `<p>${results.snippet.title}</p>`;
-        var video = `
-                      <iframe width="420" height="315"
-                      src="https://www.youtube.com/embed/${results.id.videoId}">
-                      </iframe>`;
-        // $("#video")
-        //   .append(title)
-        //   .append(video);
+        var title = $("<p>" + results.snippet.title + "</p>");
+        var video = $("<iframe>")
+          .attr("width", "420")
+          .attr("height", "315")
+          .attr("src", "https://www.youtube.com/embed/" + results.id.videoId);
+
+        $("#musicVideo")
+          .append(title)
+          .append(video);
       },
       function(err) {
         console.error("Execute error", err);
       }
     );
 }
-// gapi.load("client"); 
+gapi.load("client");
 
 /*
 end of youtube api call
-
-We need to figure out a way to perform the load client function 
-I was going to add it to the first button click event
-other than that the list portion of the api is where we need to input variables
-more specifically just the value for "q"
-
 */
 
 //====================================================================================================================================
-// WIKIPEDIA API 
+// WIKIPEDIA API
 
 // the main endpoint. In this case it is English Wikipedia.
-var url = "https://en.wikipedia.org/w/api.php"; 
 
-var params = {
+function wikiCall() {
+  var url = "https://en.wikipedia.org/w/api.php";
+
+  var params = {
     // action=query means fetch data from wiki.
     action: "query",
     // list=search means get list of pages matching a criteria
     list: "search",
     // srsearch=Craig%20Noone indicates the page title to search for. The %20 indicates a space character in a URL.
-    srsearch: "Craig Noone",
+    srsearch: "singer",
     // indicates JSON output, which is the recommended output format.
-    format: "json"
-};
+    format: "json",
+  };
 
-//Keyess API 
-url = url + "?origin=*";
-Object.keys(params).forEach(function(key){url += "&" + key + "=" + params[key];});
+  //Keyess API
+  url = url + "?origin=*";
+  Object.keys(params).forEach(function(key) {
+    url += "&" + key + "=" + params[key];
+  });
 
-fetch(url)
-  .then(function(response){return response.json();})
+  fetch(url)
     .then(function(response) {
-        if (response.query.search[0].title === "Craig Noone"){
-           // console.log("Your search page 'Craig Noone' exists on English Wikipedia" );
-        console.log(response)
-          }
+      return response.json();
     })
-    .catch(function(error){console.log(error);});
+    .then(function(response) {
+      if (response.query.search[0].title === "singer") {
+        console.log("Your search page 'singer' exists on English Wikipedia");
+        //console.log(response)
+      }
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
 
 // =======================================================================================================
