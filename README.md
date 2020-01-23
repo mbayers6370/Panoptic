@@ -5,7 +5,14 @@ Choose a self-explaining name for your project. -->
 # README PROJECT 1
 
 ## Description
-We have created a web application that lets users enter thier favorite artist and will recieve lyrics to the top songs and to a link the artist may have. 
+We have created a web application that lets users enter for their favorite artist. When user inputs in the search box the following will happen
+
+* Recieve an image of the artist                ... ✔
+* Recieve songs that the artist has             ... ✔
+* Recieve lyrics to the song selected           ... ✔
+* Recieve information of the artist             ...(In Progress)
+* Recieve a link if the artist is on tour       ... ✔
+* Recieve a Video on the selected song          ...(In Progress)
 
 
 ## Visuals
@@ -22,30 +29,23 @@ Use examples liberally, and show the expected output if you can. It's helpful to
  -->
 
 ## Roadmap
-* Finding API's                           ... ✔
-* Calling API's in js.logic               ... ✔
-* Creating the webpage using materialize  ... (In Progress)
-* Creating and upadating ReadMe            ... (In Progress)
-
-<!-- 
-## Contributing
-Not Open to Contributers
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
- -->
+* Finding API's                             ... ✔
+* Found BandInTown API                      ... ✔
+* Found MourtzLyrics API                    ... ✔
+* Calling API's in js.logic                 ... ✔
+* Creating the webpage using Materialize    ...(In Progress)
+* Creating and upadating ReadMe             ...(In Progress)
+* Found Youtube API for addding Video       ...(In Progress)
+* Found WIKIPEDIA API for Artist Infomation ...(In Progress)
 
 ## Authors and acknowledgment
 * Christian Maldonado
 * Matt Bayers
-* Niles
-* Omar A
+* Niles Bingham
+* Omar Abbasi
 
-<!-- License
-For open source projects, say how it is licensed.
- --> 
-
-<!-- Project status
+## Contributing
+Not Open to Contributers
 
 ## Project Status
 In Progress...
---> 
