@@ -4,6 +4,24 @@ var singer = [];
 var artistImg;
 
 //submit button for form
+$(document).on("click", "#submit", function (event) {
+    event.preventDefault();
+    // adding user input to a variable
+    var searchTerm = $("#searchTerm").val();
+    console.log(searchTerm)
+
+    // pushing user input from variable into singer array
+    singer = [];
+    singer.push(searchTerm);
+
+    //remove previous buttons
+    $("#here").empty();
+    $("#lyrics").empty();
+    $("#musicVideo").empty();
+    $("#profile").empty();
+    buttonGen();
+    artistData();
+})
 $(document).on("click", "#submit", function(event) {
   event.preventDefault();
   // adding user input to a variable
@@ -77,7 +95,8 @@ function artistData() {
     console.log(response);
 
     // Artist Monkey Brainz id
-    artistImg = `<img src="${response.image_url}" alt="${response.name}" />`;
+    artistImg = `<img src="${response.image_url}" alt="${response.name}" id="profPic"/>`;
+    $("#profile").append(artistImg);
     // variable to check if there are upcoming events for selected artist
     var eventCount = response.upcoming_event_count;
     if (eventCount > 0) {
@@ -85,7 +104,7 @@ function artistData() {
         .attr("href", response.url)
         .text("See Tour Dates");
     }
-    $().append(tourLink);
+    $("#profile").append(tourLink);
   });
 }
 
