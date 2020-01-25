@@ -87,6 +87,7 @@ function artistData() {
         .attr("href", response.url)
         .text("See Tour Dates");
     }
+    $("#profile").append("<br>");
     $("#profile").append(tourLink);
   });
 }
