@@ -39,7 +39,7 @@ function buttonGen() {
       format: "jsonp",
       callback: "jsonp_callback",
     },
-    url: "http://api.musixmatch.com/ws/1.1/track.search",
+    url: "https://api.musixmatch.com/ws/1.1/track.search",
     dataType: "jsonp",
     jsonpCallback: "jsonp_callback",
     contentType: "application/json",
@@ -74,14 +74,12 @@ function artistData() {
     url: queryURL,
     method: "GET",
   }).then(function(response) {
-    // Printing the entire object to console
-    console.log(response);
 
     // Artist Monkey Brainz id
     artistImg = $(
       "<img src='" + response.image_url + "' alt='" + response.name + "' id='profPic'/>"
     );
-    $("#profile").append(artistImg);
+    $("#profile").prepend(artistImg);
     // variable to check if there are upcoming events for selected artist
     var eventCount = response.upcoming_event_count;
     if (eventCount > 0) {
@@ -89,6 +87,7 @@ function artistData() {
         .attr("href", response.url)
         .text("See Tour Dates");
     }
+    $("#profile").append("<br>");
     $("#profile").append(tourLink);
   });
 }
@@ -119,6 +118,7 @@ $(document).on("click", ".tracks", function() {
     //saving results to to response
     var results = response;
 
+    console.log(results.result.lyrics)
     //if the results are successful print out lyrics, else print error
     if (results.success == true) {
       $("#lyrics").html("<br><p id='lyrics'>" + results.result.lyrics + "</p>");
@@ -131,10 +131,7 @@ $(document).on("click", ".tracks", function() {
   execute();
 });
 
-/*
-YouTube Api 
-
-*/
+/*Youtube API*/
 
 function loadClient() {
   gapi.client.setApiKey("AIzaSyC8ON2ihQcVmdOPUKgwnn3uwVGGo4YIli4");
@@ -194,7 +191,7 @@ function wikiCall() {
     // list=search means get list of pages matching a criteria
     list: "search",
     // srsearch=Craig%20Noone indicates the page title to search for. The %20 indicates a space character in a URL.
-    srsearch: "singer",
+    srsearch: singer[0],
     // indicates JSON output, which is the recommended output format.
     format: "json",
   };
@@ -210,9 +207,13 @@ function wikiCall() {
       return response.json();
     })
     .then(function(response) {
-      if (response.query.search[0].title === "singer") {
-        console.log("Your search page 'singer' exists on English Wikipedia");
-        //console.log(response)
+      console.log(response)
+      var singerSearch = response.query.search[0].title;
+      if (singerSearch.toLowerCase() === singer[0].toLowerCase()) {
+        console.log(response.query.search[0].snippet)
+        $("#profile").append("<br>");
+        $("#profile").append(response.query.search[0].snippet);
+        $("#profile").append("<a href='https://en.wikipedia.org/wiki/"+singer[0]+"'>...</a>")
       }
     })
     .catch(function(error) {
