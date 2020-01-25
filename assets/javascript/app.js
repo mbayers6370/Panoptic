@@ -95,6 +95,7 @@ function artistData() {
 
 //onclick function to access .track buttons created from buttonGen
 $(document).on("click", ".tracks", function() {
+  $("#musicVideo").empty();
   var settings = {
     async: true,
     crossDomain: true,
@@ -160,15 +161,13 @@ function execute() {
         // Handle the results here (response.result has the parsed body).
         console.log("Response", response);
         var results = response.result.items[0];
-        var title = $("<p>" + results.snippet.title + "</p>");
+        var container = $("<div>").attr("class", "video-container");
         var video = $("<iframe>")
           .attr("width", "420")
           .attr("height", "315")
           .attr("src", "https://www.youtube.com/embed/" + results.id.videoId);
-
-        $("#musicVideo")
-          .append(title)
-          .append(video);
+        container.append(video);
+        $("#musicVideo").append(container);
       },
       function(err) {
         console.error("Execute error", err);
