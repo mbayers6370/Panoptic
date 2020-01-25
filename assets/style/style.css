@@ -126,9 +126,15 @@ div.lyrics {
     background-color: #242424;
   }
   #header {
-    -webkit-text-stroke: 2px #0892d0;
+    -webkit-text-stroke: 2px #e200c7;
   }
   #searchHeader {
-    -webkit-text-stroke: 0.5px #0892d0;
+    -webkit-text-stroke: 0.5px #e200c7;
+  }
+  .teal {
+    background-color: #e200c7;
+  }
+  .darken-4 {
+    background-color: #e200c7;
   }
 }
