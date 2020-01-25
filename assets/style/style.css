@@ -145,4 +145,8 @@ div.lyrics {
   #searchHeader {
     -webkit-text-stroke: 0.5px #0892d0;
   }
+  
+  #searchTerm {
+    color: white;
+  }
 }
