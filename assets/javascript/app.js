@@ -74,14 +74,12 @@ function artistData() {
     url: queryURL,
     method: "GET",
   }).then(function(response) {
-    // Printing the entire object to console
-    console.log(response);
 
     // Artist Monkey Brainz id
     artistImg = $(
       "<img src='" + response.image_url + "' alt='" + response.name + "' id='profPic'/>"
     );
-    $("#profile").append(artistImg);
+    $("#profile").prepend(artistImg);
     // variable to check if there are upcoming events for selected artist
     var eventCount = response.upcoming_event_count;
     if (eventCount > 0) {
@@ -95,6 +93,7 @@ function artistData() {
 
 //onclick function to access .track buttons created from buttonGen
 $(document).on("click", ".tracks", function() {
+  $("#musicVideo").empty();
   var settings = {
     async: true,
     crossDomain: true,
@@ -128,6 +127,7 @@ $(document).on("click", ".tracks", function() {
       );
     }
   });
+  execute();
 });
 
 /*Youtube API*/
@@ -190,7 +190,7 @@ function wikiCall() {
     // list=search means get list of pages matching a criteria
     list: "search",
     // srsearch=Craig%20Noone indicates the page title to search for. The %20 indicates a space character in a URL.
-    srsearch: "singer",
+    srsearch: singer[0],
     // indicates JSON output, which is the recommended output format.
     format: "json",
   };
@@ -206,9 +206,13 @@ function wikiCall() {
       return response.json();
     })
     .then(function(response) {
-      if (response.query.search[0].title === "singer") {
-        console.log("Your search page 'singer' exists on English Wikipedia");
-        //console.log(response)
+      console.log(response)
+      var singerSearch = response.query.search[0].title;
+      if (singerSearch.toLowerCase() === singer[0].toLowerCase()) {
+        console.log(response.query.search[0].snippet)
+        $("#profile").append("<br>");
+        $("#profile").append(response.query.search[0].snippet);
+        $("#profile").append("<a href='https://en.wikipedia.org/wiki/"+singer[0]+"'>...</a>")
       }
     })
     .catch(function(error) {

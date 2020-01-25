@@ -35,7 +35,8 @@ Overall we belive that this is an easy to use application for any use to find th
 * Creating the webpage using Materialize    ... ✔
 * Creating and upadating ReadMe             ...(In Progress)
 * Found Youtube API for addding Video       ...(In Progress)
-* Found WIKIPEDIA API for Artist Infomation ...(In Progress)
+* Found WIKIPEDIA API for Artist Infomation ... ✔
+* Added Favicon                             ... ✔
 
 ## Authors and acknowledgment
 * Christian Maldonado
@@ -47,5 +48,5 @@ Overall we belive that this is an easy to use application for any use to find th
 Not Open to Contributers
 
 ## Project Status
-* Finishes with core functions
-* Adding bells and wistles now to finished project
+* Finished with core functions
+* Adding bells and whistles now to finished projects
