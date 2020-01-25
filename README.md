@@ -18,7 +18,7 @@ We have created a web application that lets users enter for their favorite artis
 ## Visuals
 ![Main boot screen](assets/images/panopticMain.png)
 ![Artist Search](assets/images/panopticMetallica.png)
-![Artist Song Search](assets/images/panopticMetallicaSearch.png)
+![Artist Song Search](assets/images/panopticMetallicaSearched.png)
 
 ## Usage
 Enter an artist you can think of in the search bar. You will recieve information about the artist with songs that are popular by the atist and information about the artist via Wikipedia. Clicking on any of the songs will display song lyrics, if the song does not have any lyrics then it will display with an error. Alongside the lyrics a youtube video will pop up as well as a link to tour dates if the aritst has any upcoming tour dates. 
