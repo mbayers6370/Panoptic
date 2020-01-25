@@ -1,7 +1,4 @@
-html, body {
-    margin: 0;
-    height: 100%;
-}
+
 
 .tracks {
     margin-right: 3px;
@@ -34,19 +31,17 @@ html, body {
 }
 
 #profPic{
-    width: 400px;
-    height: 100%;
+    height: 400px;
     margin-top: 10px;
 }
 
 #tour {
-    clear: left;
+    clear: both;
 }
 
 #form {
     position: fixed;
     bottom: 0;
-    margin-bottom: 2px;
     background-color: white;
     text-align: center;
     width: 100%;
@@ -58,6 +53,10 @@ html, body {
     margin-top: 10px;
     text-align: center;
     padding-right: 10%;
+}
+
+#submit{
+    margin-bottom: 2px;
 }
 
 #searchTerm {
@@ -117,6 +116,19 @@ div.lyrics {
         font-size: 70px;
     }
 
+    .tracks {
+        padding: none;
+        height: 20px;
+        font-size: 10px;
+    }
 
+    #profPic {
+        width: 100%;
+    }
+
+    #here {
+        width: 300px;
+        margin-left: 10%;
+    }
 
   }

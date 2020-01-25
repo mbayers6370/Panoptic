@@ -118,6 +118,7 @@ $(document).on("click", ".tracks", function() {
     //saving results to to response
     var results = response;
 
+    console.log(results.result.lyrics)
     //if the results are successful print out lyrics, else print error
     if (results.success == true) {
       $("#lyrics").html("<br><p id='lyrics'>" + results.result.lyrics + "</p>");
@@ -127,13 +128,9 @@ $(document).on("click", ".tracks", function() {
       );
     }
   });
-  execute();
 });
 
-/*
-YouTube Api 
-
-*/
+/*Youtube API*/
 
 function loadClient() {
   gapi.client.setApiKey("AIzaSyC8ON2ihQcVmdOPUKgwnn3uwVGGo4YIli4");
@@ -160,15 +157,13 @@ function execute() {
         // Handle the results here (response.result has the parsed body).
         console.log("Response", response);
         var results = response.result.items[0];
-        var title = $("<p>" + results.snippet.title + "</p>");
+        var container = $("<div>").attr("class", "video-container");
         var video = $("<iframe>")
           .attr("width", "420")
           .attr("height", "315")
           .attr("src", "https://www.youtube.com/embed/" + results.id.videoId);
-
-        $("#musicVideo")
-          .append(title)
-          .append(video);
+        container.append(video);
+        $("#musicVideo").append(container);
       },
       function(err) {
         console.error("Execute error", err);
