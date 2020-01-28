@@ -20,6 +20,8 @@ $(document).on("click", "#submit", function(event) {
   $("#lyrics").empty();
   $("#musicVideo").empty();
   $("#profile").empty();
+  
+  //create new buttons, add artist image, bio, & tour dates
   buttonGen();
   artistData();
   wikiCall();
@@ -57,7 +59,7 @@ function buttonGen() {
 
       //appending buttons to id here
       $("#here").append(
-        "<button class='tracks waves-effect waves-light btn-large teal darken-4' id='" +
+        "<button class='tracks waves-effect waves-light btn-large teal darken-2' id='" +
           trackNames +
           "'>" +
           trackNames +
@@ -207,8 +209,11 @@ function wikiCall() {
       return response.json();
     })
     .then(function(response) {
-      console.log(response)
+      // add response singer to variable
       var singerSearch = response.query.search[0].title;
+    
+      //compare singer[0] to response singer - both set to lower case
+      // if true append bio with a link to wikipedia page, if not log error
       if (singerSearch.toLowerCase() === singer[0].toLowerCase()) {
         console.log(response.query.search[0].snippet)
         $("#profile").append("<br>");
