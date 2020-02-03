@@ -20,7 +20,11 @@ $(document).on("click", "#submit", function(event) {
   $("#lyrics").empty();
   $("#musicVideo").empty();
   $("#profile").empty();
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 2b613f4eaa0173e1f90c5415c67dddc2993af927
   //create new buttons, add artist image, bio, & tour dates
   buttonGen();
   artistData();
@@ -210,7 +214,11 @@ function wikiCall() {
     .then(function(response) {
       // add response singer to variable
       var singerSearch = response.query.search[0].title;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 2b613f4eaa0173e1f90c5415c67dddc2993af927
       //compare singer[0] to response singer - both set to lower case
       // if true append bio with a link to wikipedia page, if not log error
       if (singerSearch.toLowerCase() === singer[0].toLowerCase()) {

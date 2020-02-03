@@ -133,13 +133,14 @@ div.lyrics {
 
 @media screen and (prefers-color-scheme: dark) {
   body {
-    background-color: #242424;
+    background-color: rgb(12, 12, 12);
     color: #ffffff;
   }
   #form {
-    background-color: #242424;
+    background-color: rgb(12, 12, 12);
   }
   #header {
+<<<<<<< HEAD
     -webkit-text-stroke: 2px #e200c7;
   }
   #searchHeader {
@@ -150,6 +151,12 @@ div.lyrics {
   }
   .darken-4 {
     background-color: #e200c7;
+=======
+    -webkit-text-stroke: 2px #08ecec;
+  }
+  #searchHeader {
+    -webkit-text-stroke: 0.5px #08ecec;
+>>>>>>> 2b613f4eaa0173e1f90c5415c67dddc2993af927
   }
   
   #searchTerm {
