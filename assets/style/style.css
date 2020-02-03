@@ -1,4 +1,3 @@
-
 .tracks {
   margin-right: 3px;
   margin-top: 3px;
@@ -29,22 +28,22 @@
   margin-bottom: 0;
 }
 
-#profPic{
-    height: 400px;
-    margin-top: 10px;
+#profPic {
+  height: 400px;
+  margin-top: 10px;
 }
 
 #tour {
-    clear: both;
+  clear: both;
 }
 
 #form {
-    position: fixed;
-    bottom: 0;
-    background-color: white;
-    text-align: center;
-    width: 100%;
-    left: 0;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  left: 0;
 }
 
 #lyrics {
@@ -54,8 +53,8 @@
   padding-right: 10%;
 }
 
-#submit{
-    margin-bottom: 2px;
+#submit {
+  margin-bottom: 2px;
 }
 
 #searchTerm {
@@ -140,25 +139,12 @@ div.lyrics {
     background-color: rgb(12, 12, 12);
   }
   #header {
-<<<<<<< HEAD
-    -webkit-text-stroke: 2px #e200c7;
-  }
-  #searchHeader {
-    -webkit-text-stroke: 0.5px #e200c7;
-  }
-  .teal {
-    background-color: #e200c7;
-  }
-  .darken-4 {
-    background-color: #e200c7;
-=======
     -webkit-text-stroke: 2px #08ecec;
   }
   #searchHeader {
     -webkit-text-stroke: 0.5px #08ecec;
->>>>>>> 2b613f4eaa0173e1f90c5415c67dddc2993af927
   }
-  
+
   #searchTerm {
     color: white;
   }
