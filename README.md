@@ -16,10 +16,10 @@ We have created a web application that lets users enter for their favorite artis
 
 ## Visuals
 
-<p align="center"><img src="assets/images/panoptic.gif"></p>
-![Main boot screen](assets/images/panopticMain.png)
-![Artist Search](assets/images/panopticMetallica.png)
-![Artist Song Search](assets/images/panopticMetallicaSearched.png)
+<p align="center"><img src="assets/images/panoptic.gif" alt="panoptic demo"></p>
+<img src="assets/images/panopticMain.png" alt="Main boot screen">  
+<img src="assets/images/panopticMetallica.png" alt="Artist Search"> 
+<img src="assets/images/panopticMetallicaSearched.png" alt="Artist Song Search">
 
 ## Usage
 
