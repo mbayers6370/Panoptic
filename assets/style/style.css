@@ -1,4 +1,3 @@
-
 .tracks {
   margin-right: 3px;
   margin-top: 3px;
@@ -29,22 +28,22 @@
   margin-bottom: 0;
 }
 
-#profPic{
-    height: 400px;
-    margin-top: 10px;
+#profPic {
+  height: 400px;
+  margin-top: 10px;
 }
 
 #tour {
-    clear: both;
+  clear: both;
 }
 
 #form {
-    position: fixed;
-    bottom: 0;
-    background-color: white;
-    text-align: center;
-    width: 100%;
-    left: 0;
+  position: fixed;
+  bottom: 0;
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  left: 0;
 }
 
 #lyrics {
@@ -54,8 +53,8 @@
   padding-right: 10%;
 }
 
-#submit{
-    margin-bottom: 2px;
+#submit {
+  margin-bottom: 2px;
 }
 
 #searchTerm {
@@ -145,7 +144,7 @@ div.lyrics {
   #searchHeader {
     -webkit-text-stroke: 0.5px #08ecec;
   }
-  
+
   #searchTerm {
     color: white;
   }
