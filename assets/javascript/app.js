@@ -135,7 +135,7 @@ $(document).on("click", ".tracks", function() {
 /*Youtube API*/
 
 function loadClient() {
-  gapi.client.setApiKey("AIzaSyC8ON2ihQcVmdOPUKgwnn3uwVGGo4YIli4");
+  gapi.client.setApiKey("AIzaSyCAF4pMYhzN4ME5qh70L49ztFxV9mnMclw");
   return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest").then(
     function() {
       console.log("GAPI client loaded for API");
